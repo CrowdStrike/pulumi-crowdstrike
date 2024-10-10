@@ -1,7 +1,7 @@
 {
     "name": "crowdstrike",
     "displayName": "CrowdStrike",
-    "description": "A Pulumi package for creating and managing Crowdstrike resources",
+    "description": "A Pulumi package for creating and managing CrowdStrike resources",
     "keywords": [
         "pulumi",
         "crowdstrike",
@@ -18,23 +18,10 @@
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
     "language": {
-        "csharp": {
-            "packageReferences": {
-                "Pulumi": "3.*"
-            },
-            "compatibility": "tfbridge20",
-            "rootNamespace": "CrowdStrike"
-        },
         "go": {
             "importBasePath": "github.com/crowdstrike/pulumi-crowdstrike/sdk/go/crowdstrike",
             "generateResourceContainerTypes": true,
             "generateExtraInputTypes": true
-        },
-        "java": {
-            "basePackage": "com.crowdstrike",
-            "buildFiles": "",
-            "gradleNexusPublishPluginVersion": "",
-            "gradleTest": ""
         },
         "nodejs": {
             "packageName": "@crowdstrike/pulumi",
