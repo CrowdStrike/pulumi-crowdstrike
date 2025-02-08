@@ -326,8 +326,8 @@ github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81/go.mod h1:Yyn
 github.com/cpuguy83/go-md2man/v2 v2.0.3/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/crowdstrike/gofalcon v0.6.1-0.20240426204036-ac8ce2b4f2d7 h1:NLcXFICTUakAvJFSH8z+Ht6SfJ52FbOasYdP8p7BcsQ=
 github.com/crowdstrike/gofalcon v0.6.1-0.20240426204036-ac8ce2b4f2d7/go.mod h1:7KSolP3XCntqZiu7GfGd8uedAQ82dqBNpP0gqBksWB8=
-github.com/crowdstrike/terraform-provider-crowdstrike v0.0.12 h1:g9h37KThI0yutXVXPWTERgGedLq9+l1t8aPvlSR9bVo=
-github.com/crowdstrike/terraform-provider-crowdstrike v0.0.12/go.mod h1:R9kYJzHPH0NKBwPwJdNchkorNDAKxbqr/Cnxx8JPPw0=
+github.com/crowdstrike/terraform-provider-crowdstrike v0.0.13 h1:Wwj33hi2KyorRm1In4dJAI3SpCtqIxg3g1IYwyXHUXA=
+github.com/crowdstrike/terraform-provider-crowdstrike v0.0.13/go.mod h1:R9kYJzHPH0NKBwPwJdNchkorNDAKxbqr/Cnxx8JPPw0=
 github.com/cyphar/filepath-securejoin v0.3.6 h1:4d9N5ykBnSp5Xn2JkhocYDkOpURL/18CYMpo6xB9uWM=
 github.com/cyphar/filepath-securejoin v0.3.6/go.mod h1:Sdj7gXlvMcPZsbhwhQ33GguGLDGQL7h7bg04C/+u9jI=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

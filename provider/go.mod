@@ -47,7 +47,7 @@ require (
 	github.com/cloudflare/circl v1.3.7 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/crowdstrike/gofalcon v0.6.1-0.20240426204036-ac8ce2b4f2d7 // indirect
-	github.com/crowdstrike/terraform-provider-crowdstrike v0.0.12 // indirect
+	github.com/crowdstrike/terraform-provider-crowdstrike v0.0.13 // indirect
 	github.com/cyphar/filepath-securejoin v0.3.6 // indirect
 	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
