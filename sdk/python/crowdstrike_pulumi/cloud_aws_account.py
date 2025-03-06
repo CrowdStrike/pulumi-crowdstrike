@@ -187,10 +187,12 @@ class _CloudAwsAccountState:
                  deployment_method: Optional[pulumi.Input[str]] = None,
                  dspm: Optional[pulumi.Input['CloudAwsAccountDspmArgs']] = None,
                  dspm_role_arn: Optional[pulumi.Input[str]] = None,
+                 dspm_role_name: Optional[pulumi.Input[str]] = None,
                  eventbus_arn: Optional[pulumi.Input[str]] = None,
                  eventbus_name: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
+                 iam_role_name: Optional[pulumi.Input[str]] = None,
                  idp: Optional[pulumi.Input['CloudAwsAccountIdpArgs']] = None,
                  intermediate_role_arn: Optional[pulumi.Input[str]] = None,
                  is_organization_management_account: Optional[pulumi.Input[bool]] = None,
@@ -204,10 +206,12 @@ class _CloudAwsAccountState:
         :param pulumi.Input[str] account_type: The AWS account type. Value is 'commercial' for Commercial cloud accounts. For GovCloud environments, value can be either 'commercial' or 'gov' depending on the account type
         :param pulumi.Input[str] cloudtrail_bucket_name: The name of the CloudTrail S3 bucket used for real-time visibility
         :param pulumi.Input[str] dspm_role_arn: The ARN of the IAM role to be used by CrowdStrike Data Security Posture Management
+        :param pulumi.Input[str] dspm_role_name: The name of the IAM role to be used by CrowdStrike Data Security Posture Management
         :param pulumi.Input[str] eventbus_arn: The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
         :param pulumi.Input[str] eventbus_name: The name of the Amazon EventBridge used by CrowdStrike to forward messages
         :param pulumi.Input[str] external_id: The external ID used to assume the AWS IAM role
         :param pulumi.Input[str] iam_role_arn: The ARN of the AWS IAM role used to access this AWS account
+        :param pulumi.Input[str] iam_role_name: The name of the AWS IAM role used to access this AWS account
         :param pulumi.Input[str] intermediate_role_arn: The ARN of the intermediate role used to assume the AWS IAM role
         :param pulumi.Input[bool] is_organization_management_account: Indicates whether this is the management account (formerly known as the root account) of an AWS Organization
         :param pulumi.Input[str] organization_id: The AWS Organization ID
@@ -227,6 +231,8 @@ class _CloudAwsAccountState:
             pulumi.set(__self__, "dspm", dspm)
         if dspm_role_arn is not None:
             pulumi.set(__self__, "dspm_role_arn", dspm_role_arn)
+        if dspm_role_name is not None:
+            pulumi.set(__self__, "dspm_role_name", dspm_role_name)
         if eventbus_arn is not None:
             pulumi.set(__self__, "eventbus_arn", eventbus_arn)
         if eventbus_name is not None:
@@ -235,6 +241,8 @@ class _CloudAwsAccountState:
             pulumi.set(__self__, "external_id", external_id)
         if iam_role_arn is not None:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if iam_role_name is not None:
+            pulumi.set(__self__, "iam_role_name", iam_role_name)
         if idp is not None:
             pulumi.set(__self__, "idp", idp)
         if intermediate_role_arn is not None:
@@ -326,6 +334,18 @@ class _CloudAwsAccountState:
         pulumi.set(self, "dspm_role_arn", value)
 
     @property
+    @pulumi.getter(name="dspmRoleName")
+    def dspm_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to be used by CrowdStrike Data Security Posture Management
+        """
+        return pulumi.get(self, "dspm_role_name")
+
+    @dspm_role_name.setter
+    def dspm_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dspm_role_name", value)
+
+    @property
     @pulumi.getter(name="eventbusArn")
     def eventbus_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -372,6 +392,18 @@ class _CloudAwsAccountState:
     @iam_role_arn.setter
     def iam_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "iam_role_arn", value)
+
+    @property
+    @pulumi.getter(name="iamRoleName")
+    def iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AWS IAM role used to access this AWS account
+        """
+        return pulumi.get(self, "iam_role_name")
+
+    @iam_role_name.setter
+    def iam_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role_name", value)
 
     @property
     @pulumi.getter
@@ -550,10 +582,12 @@ class CloudAwsAccount(pulumi.CustomResource):
             __props__.__dict__["target_ouses"] = target_ouses
             __props__.__dict__["cloudtrail_bucket_name"] = None
             __props__.__dict__["dspm_role_arn"] = None
+            __props__.__dict__["dspm_role_name"] = None
             __props__.__dict__["eventbus_arn"] = None
             __props__.__dict__["eventbus_name"] = None
             __props__.__dict__["external_id"] = None
             __props__.__dict__["iam_role_arn"] = None
+            __props__.__dict__["iam_role_name"] = None
             __props__.__dict__["intermediate_role_arn"] = None
         super(CloudAwsAccount, __self__).__init__(
             'crowdstrike:index/cloudAwsAccount:CloudAwsAccount',
@@ -572,10 +606,12 @@ class CloudAwsAccount(pulumi.CustomResource):
             deployment_method: Optional[pulumi.Input[str]] = None,
             dspm: Optional[pulumi.Input[Union['CloudAwsAccountDspmArgs', 'CloudAwsAccountDspmArgsDict']]] = None,
             dspm_role_arn: Optional[pulumi.Input[str]] = None,
+            dspm_role_name: Optional[pulumi.Input[str]] = None,
             eventbus_arn: Optional[pulumi.Input[str]] = None,
             eventbus_name: Optional[pulumi.Input[str]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
             iam_role_arn: Optional[pulumi.Input[str]] = None,
+            iam_role_name: Optional[pulumi.Input[str]] = None,
             idp: Optional[pulumi.Input[Union['CloudAwsAccountIdpArgs', 'CloudAwsAccountIdpArgsDict']]] = None,
             intermediate_role_arn: Optional[pulumi.Input[str]] = None,
             is_organization_management_account: Optional[pulumi.Input[bool]] = None,
@@ -594,10 +630,12 @@ class CloudAwsAccount(pulumi.CustomResource):
         :param pulumi.Input[str] account_type: The AWS account type. Value is 'commercial' for Commercial cloud accounts. For GovCloud environments, value can be either 'commercial' or 'gov' depending on the account type
         :param pulumi.Input[str] cloudtrail_bucket_name: The name of the CloudTrail S3 bucket used for real-time visibility
         :param pulumi.Input[str] dspm_role_arn: The ARN of the IAM role to be used by CrowdStrike Data Security Posture Management
+        :param pulumi.Input[str] dspm_role_name: The name of the IAM role to be used by CrowdStrike Data Security Posture Management
         :param pulumi.Input[str] eventbus_arn: The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
         :param pulumi.Input[str] eventbus_name: The name of the Amazon EventBridge used by CrowdStrike to forward messages
         :param pulumi.Input[str] external_id: The external ID used to assume the AWS IAM role
         :param pulumi.Input[str] iam_role_arn: The ARN of the AWS IAM role used to access this AWS account
+        :param pulumi.Input[str] iam_role_name: The name of the AWS IAM role used to access this AWS account
         :param pulumi.Input[str] intermediate_role_arn: The ARN of the intermediate role used to assume the AWS IAM role
         :param pulumi.Input[bool] is_organization_management_account: Indicates whether this is the management account (formerly known as the root account) of an AWS Organization
         :param pulumi.Input[str] organization_id: The AWS Organization ID
@@ -614,10 +652,12 @@ class CloudAwsAccount(pulumi.CustomResource):
         __props__.__dict__["deployment_method"] = deployment_method
         __props__.__dict__["dspm"] = dspm
         __props__.__dict__["dspm_role_arn"] = dspm_role_arn
+        __props__.__dict__["dspm_role_name"] = dspm_role_name
         __props__.__dict__["eventbus_arn"] = eventbus_arn
         __props__.__dict__["eventbus_name"] = eventbus_name
         __props__.__dict__["external_id"] = external_id
         __props__.__dict__["iam_role_arn"] = iam_role_arn
+        __props__.__dict__["iam_role_name"] = iam_role_name
         __props__.__dict__["idp"] = idp
         __props__.__dict__["intermediate_role_arn"] = intermediate_role_arn
         __props__.__dict__["is_organization_management_account"] = is_organization_management_account
@@ -675,6 +715,14 @@ class CloudAwsAccount(pulumi.CustomResource):
         return pulumi.get(self, "dspm_role_arn")
 
     @property
+    @pulumi.getter(name="dspmRoleName")
+    def dspm_role_name(self) -> pulumi.Output[str]:
+        """
+        The name of the IAM role to be used by CrowdStrike Data Security Posture Management
+        """
+        return pulumi.get(self, "dspm_role_name")
+
+    @property
     @pulumi.getter(name="eventbusArn")
     def eventbus_arn(self) -> pulumi.Output[str]:
         """
@@ -705,6 +753,14 @@ class CloudAwsAccount(pulumi.CustomResource):
         The ARN of the AWS IAM role used to access this AWS account
         """
         return pulumi.get(self, "iam_role_arn")
+
+    @property
+    @pulumi.getter(name="iamRoleName")
+    def iam_role_name(self) -> pulumi.Output[str]:
+        """
+        The name of the AWS IAM role used to access this AWS account
+        """
+        return pulumi.get(self, "iam_role_name")
 
     @property
     @pulumi.getter
