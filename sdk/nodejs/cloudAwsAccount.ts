@@ -64,6 +64,10 @@ export class CloudAwsAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly dspmRoleArn!: pulumi.Output<string>;
     /**
+     * The name of the IAM role to be used by CrowdStrike Data Security Posture Management
+     */
+    public /*out*/ readonly dspmRoleName!: pulumi.Output<string>;
+    /**
      * The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
      */
     public /*out*/ readonly eventbusArn!: pulumi.Output<string>;
@@ -79,6 +83,10 @@ export class CloudAwsAccount extends pulumi.CustomResource {
      * The ARN of the AWS IAM role used to access this AWS account
      */
     public /*out*/ readonly iamRoleArn!: pulumi.Output<string>;
+    /**
+     * The name of the AWS IAM role used to access this AWS account
+     */
+    public /*out*/ readonly iamRoleName!: pulumi.Output<string>;
     public readonly idp!: pulumi.Output<outputs.CloudAwsAccountIdp>;
     /**
      * The ARN of the intermediate role used to assume the AWS IAM role
@@ -119,10 +127,12 @@ export class CloudAwsAccount extends pulumi.CustomResource {
             resourceInputs["deploymentMethod"] = state ? state.deploymentMethod : undefined;
             resourceInputs["dspm"] = state ? state.dspm : undefined;
             resourceInputs["dspmRoleArn"] = state ? state.dspmRoleArn : undefined;
+            resourceInputs["dspmRoleName"] = state ? state.dspmRoleName : undefined;
             resourceInputs["eventbusArn"] = state ? state.eventbusArn : undefined;
             resourceInputs["eventbusName"] = state ? state.eventbusName : undefined;
             resourceInputs["externalId"] = state ? state.externalId : undefined;
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["iamRoleName"] = state ? state.iamRoleName : undefined;
             resourceInputs["idp"] = state ? state.idp : undefined;
             resourceInputs["intermediateRoleArn"] = state ? state.intermediateRoleArn : undefined;
             resourceInputs["isOrganizationManagementAccount"] = state ? state.isOrganizationManagementAccount : undefined;
@@ -148,10 +158,12 @@ export class CloudAwsAccount extends pulumi.CustomResource {
             resourceInputs["targetOuses"] = args ? args.targetOuses : undefined;
             resourceInputs["cloudtrailBucketName"] = undefined /*out*/;
             resourceInputs["dspmRoleArn"] = undefined /*out*/;
+            resourceInputs["dspmRoleName"] = undefined /*out*/;
             resourceInputs["eventbusArn"] = undefined /*out*/;
             resourceInputs["eventbusName"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["iamRoleArn"] = undefined /*out*/;
+            resourceInputs["iamRoleName"] = undefined /*out*/;
             resourceInputs["intermediateRoleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -183,6 +195,10 @@ export interface CloudAwsAccountState {
      */
     dspmRoleArn?: pulumi.Input<string>;
     /**
+     * The name of the IAM role to be used by CrowdStrike Data Security Posture Management
+     */
+    dspmRoleName?: pulumi.Input<string>;
+    /**
      * The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
      */
     eventbusArn?: pulumi.Input<string>;
@@ -198,6 +214,10 @@ export interface CloudAwsAccountState {
      * The ARN of the AWS IAM role used to access this AWS account
      */
     iamRoleArn?: pulumi.Input<string>;
+    /**
+     * The name of the AWS IAM role used to access this AWS account
+     */
+    iamRoleName?: pulumi.Input<string>;
     idp?: pulumi.Input<inputs.CloudAwsAccountIdp>;
     /**
      * The ARN of the intermediate role used to assume the AWS IAM role
