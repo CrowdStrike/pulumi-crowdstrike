@@ -3923,6 +3923,8 @@ type GetCloudAwsAccountAccount struct {
 	DspmEnabled bool `pulumi:"dspmEnabled"`
 	// The ARN of the IAM role to be used by CrowdStrike DSPM
 	DspmRoleArn string `pulumi:"dspmRoleArn"`
+	// The name of the IAM role to be used by CrowdStrike DSPM
+	DspmRoleName string `pulumi:"dspmRoleName"`
 	// The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
 	EventbusArn string `pulumi:"eventbusArn"`
 	// The name of the Amazon EventBridge used by CrowdStrike to forward messages
@@ -3931,6 +3933,8 @@ type GetCloudAwsAccountAccount struct {
 	ExternalId string `pulumi:"externalId"`
 	// The ARN of the AWS IAM role used to access this AWS account
 	IamRoleArn string `pulumi:"iamRoleArn"`
+	// The name of the AWS IAM role used to access this AWS account
+	IamRoleName string `pulumi:"iamRoleName"`
 	// Whether Identity Protection is enabled
 	IdpEnabled bool `pulumi:"idpEnabled"`
 	// The ARN of the intermediate role used to assume the AWS IAM role
@@ -3973,6 +3977,8 @@ type GetCloudAwsAccountAccountArgs struct {
 	DspmEnabled pulumi.BoolInput `pulumi:"dspmEnabled"`
 	// The ARN of the IAM role to be used by CrowdStrike DSPM
 	DspmRoleArn pulumi.StringInput `pulumi:"dspmRoleArn"`
+	// The name of the IAM role to be used by CrowdStrike DSPM
+	DspmRoleName pulumi.StringInput `pulumi:"dspmRoleName"`
 	// The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
 	EventbusArn pulumi.StringInput `pulumi:"eventbusArn"`
 	// The name of the Amazon EventBridge used by CrowdStrike to forward messages
@@ -3981,6 +3987,8 @@ type GetCloudAwsAccountAccountArgs struct {
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
 	// The ARN of the AWS IAM role used to access this AWS account
 	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+	// The name of the AWS IAM role used to access this AWS account
+	IamRoleName pulumi.StringInput `pulumi:"iamRoleName"`
 	// Whether Identity Protection is enabled
 	IdpEnabled pulumi.BoolInput `pulumi:"idpEnabled"`
 	// The ARN of the intermediate role used to assume the AWS IAM role
@@ -4083,6 +4091,11 @@ func (o GetCloudAwsAccountAccountOutput) DspmRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAwsAccountAccount) string { return v.DspmRoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the IAM role to be used by CrowdStrike DSPM
+func (o GetCloudAwsAccountAccountOutput) DspmRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAwsAccountAccount) string { return v.DspmRoleName }).(pulumi.StringOutput)
+}
+
 // The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
 func (o GetCloudAwsAccountAccountOutput) EventbusArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAwsAccountAccount) string { return v.EventbusArn }).(pulumi.StringOutput)
@@ -4101,6 +4114,11 @@ func (o GetCloudAwsAccountAccountOutput) ExternalId() pulumi.StringOutput {
 // The ARN of the AWS IAM role used to access this AWS account
 func (o GetCloudAwsAccountAccountOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAwsAccountAccount) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the AWS IAM role used to access this AWS account
+func (o GetCloudAwsAccountAccountOutput) IamRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAwsAccountAccount) string { return v.IamRoleName }).(pulumi.StringOutput)
 }
 
 // Whether Identity Protection is enabled
