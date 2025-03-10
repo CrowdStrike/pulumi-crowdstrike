@@ -784,6 +784,10 @@
                     "type": "string",
                     "description": "The ARN of the IAM role to be used by CrowdStrike DSPM\n"
                 },
+                "dspmRoleName": {
+                    "type": "string",
+                    "description": "The name of the IAM role to be used by CrowdStrike DSPM\n"
+                },
                 "eventbusArn": {
                     "type": "string",
                     "description": "The ARN of the Amazon EventBridge used by CrowdStrike to forward messages\n"
@@ -799,6 +803,10 @@
                 "iamRoleArn": {
                     "type": "string",
                     "description": "The ARN of the AWS IAM role used to access this AWS account\n"
+                },
+                "iamRoleName": {
+                    "type": "string",
+                    "description": "The name of the AWS IAM role used to access this AWS account\n"
                 },
                 "idpEnabled": {
                     "type": "boolean",
@@ -841,10 +849,12 @@
                 "cloudtrailRegion",
                 "dspmEnabled",
                 "dspmRoleArn",
+                "dspmRoleName",
                 "eventbusArn",
                 "eventbusName",
                 "externalId",
                 "iamRoleArn",
+                "iamRoleName",
                 "idpEnabled",
                 "intermediateRoleArn",
                 "isOrganizationManagementAccount",
@@ -1584,6 +1594,10 @@
                     "type": "string",
                     "description": "The ARN of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
                 },
+                "dspmRoleName": {
+                    "type": "string",
+                    "description": "The name of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
+                },
                 "eventbusArn": {
                     "type": "string",
                     "description": "The ARN of the Amazon EventBridge used by CrowdStrike to forward messages\n"
@@ -1599,6 +1613,10 @@
                 "iamRoleArn": {
                     "type": "string",
                     "description": "The ARN of the AWS IAM role used to access this AWS account\n"
+                },
+                "iamRoleName": {
+                    "type": "string",
+                    "description": "The name of the AWS IAM role used to access this AWS account\n"
                 },
                 "idp": {
                     "$ref": "#/types/crowdstrike:index/CloudAwsAccountIdp:CloudAwsAccountIdp"
@@ -1637,10 +1655,12 @@
                 "deploymentMethod",
                 "dspm",
                 "dspmRoleArn",
+                "dspmRoleName",
                 "eventbusArn",
                 "eventbusName",
                 "externalId",
                 "iamRoleArn",
+                "iamRoleName",
                 "idp",
                 "intermediateRoleArn",
                 "isOrganizationManagementAccount",
@@ -1723,6 +1743,10 @@
                         "type": "string",
                         "description": "The ARN of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
                     },
+                    "dspmRoleName": {
+                        "type": "string",
+                        "description": "The name of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
+                    },
                     "eventbusArn": {
                         "type": "string",
                         "description": "The ARN of the Amazon EventBridge used by CrowdStrike to forward messages\n"
@@ -1738,6 +1762,10 @@
                     "iamRoleArn": {
                         "type": "string",
                         "description": "The ARN of the AWS IAM role used to access this AWS account\n"
+                    },
+                    "iamRoleName": {
+                        "type": "string",
+                        "description": "The name of the AWS IAM role used to access this AWS account\n"
                     },
                     "idp": {
                         "$ref": "#/types/crowdstrike:index/CloudAwsAccountIdp:CloudAwsAccountIdp"
