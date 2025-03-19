@@ -57,6 +57,12 @@ namespace CrowdStrike.Crowdstrike
         public Output<string> DspmRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the IAM role to be used by CrowdStrike Data Security Posture Management
+        /// </summary>
+        [Output("dspmRoleName")]
+        public Output<string> DspmRoleName { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
         /// </summary>
         [Output("eventbusArn")]
@@ -80,6 +86,12 @@ namespace CrowdStrike.Crowdstrike
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the AWS IAM role used to access this AWS account
+        /// </summary>
+        [Output("iamRoleName")]
+        public Output<string> IamRoleName { get; private set; } = null!;
+
         [Output("idp")]
         public Output<Outputs.CloudAwsAccountIdp> Idp { get; private set; } = null!;
 
@@ -96,7 +108,7 @@ namespace CrowdStrike.Crowdstrike
         public Output<bool> IsOrganizationManagementAccount { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Organization ID
+        /// The AWS Organization ID (starts with `o-`). When specified, accounts within the organization will be registered. If `target_ous` is empty, all accounts in the organization will be registered. The `account_id` must be the organization's management account ID.
         /// </summary>
         [Output("organizationId")]
         public Output<string> OrganizationId { get; private set; } = null!;
@@ -185,13 +197,7 @@ namespace CrowdStrike.Crowdstrike
         public Input<Inputs.CloudAwsAccountIdpArgs>? Idp { get; set; }
 
         /// <summary>
-        /// Indicates whether this is the management account (formerly known as the root account) of an AWS Organization
-        /// </summary>
-        [Input("isOrganizationManagementAccount")]
-        public Input<bool>? IsOrganizationManagementAccount { get; set; }
-
-        /// <summary>
-        /// The AWS Organization ID
+        /// The AWS Organization ID (starts with `o-`). When specified, accounts within the organization will be registered. If `target_ous` is empty, all accounts in the organization will be registered. The `account_id` must be the organization's management account ID.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
@@ -256,6 +262,12 @@ namespace CrowdStrike.Crowdstrike
         public Input<string>? DspmRoleArn { get; set; }
 
         /// <summary>
+        /// The name of the IAM role to be used by CrowdStrike Data Security Posture Management
+        /// </summary>
+        [Input("dspmRoleName")]
+        public Input<string>? DspmRoleName { get; set; }
+
+        /// <summary>
         /// The ARN of the Amazon EventBridge used by CrowdStrike to forward messages
         /// </summary>
         [Input("eventbusArn")]
@@ -279,6 +291,12 @@ namespace CrowdStrike.Crowdstrike
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
+        /// <summary>
+        /// The name of the AWS IAM role used to access this AWS account
+        /// </summary>
+        [Input("iamRoleName")]
+        public Input<string>? IamRoleName { get; set; }
+
         [Input("idp")]
         public Input<Inputs.CloudAwsAccountIdpGetArgs>? Idp { get; set; }
 
@@ -295,7 +313,7 @@ namespace CrowdStrike.Crowdstrike
         public Input<bool>? IsOrganizationManagementAccount { get; set; }
 
         /// <summary>
-        /// The AWS Organization ID
+        /// The AWS Organization ID (starts with `o-`). When specified, accounts within the organization will be registered. If `target_ous` is empty, all accounts in the organization will be registered. The `account_id` must be the organization's management account ID.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
