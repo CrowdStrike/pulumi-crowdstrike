@@ -784,6 +784,10 @@
                     "type": "string",
                     "description": "The ARN of the IAM role to be used by CrowdStrike DSPM\n"
                 },
+                "dspmRoleName": {
+                    "type": "string",
+                    "description": "The name of the IAM role to be used by CrowdStrike DSPM\n"
+                },
                 "eventbusArn": {
                     "type": "string",
                     "description": "The ARN of the Amazon EventBridge used by CrowdStrike to forward messages\n"
@@ -799,6 +803,10 @@
                 "iamRoleArn": {
                     "type": "string",
                     "description": "The ARN of the AWS IAM role used to access this AWS account\n"
+                },
+                "iamRoleName": {
+                    "type": "string",
+                    "description": "The name of the AWS IAM role used to access this AWS account\n"
                 },
                 "idpEnabled": {
                     "type": "boolean",
@@ -841,10 +849,12 @@
                 "cloudtrailRegion",
                 "dspmEnabled",
                 "dspmRoleArn",
+                "dspmRoleName",
                 "eventbusArn",
                 "eventbusName",
                 "externalId",
                 "iamRoleArn",
+                "iamRoleName",
                 "idpEnabled",
                 "intermediateRoleArn",
                 "isOrganizationManagementAccount",
@@ -1557,7 +1567,7 @@
     },
     "resources": {
         "crowdstrike:index/cloudAwsAccount:CloudAwsAccount": {
-            "description": "This resource allows management of an AWS account in Falcon.\n\n## API Scopes\n\nThe following API scopes are required:\n\n- Cloud security AWS registration | Read \u0026 Write\n- CSPM registration | Read \u0026 Write\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.crowdstrike.CloudAwsAccount;\nimport com.pulumi.crowdstrike.CloudAwsAccountArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountDspmArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountIdpArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountRealtimeVisibilityArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountSensorManagementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var org = new CloudAwsAccount(\"org\", CloudAwsAccountArgs.builder()\n            .accountId(\"123456789012\")\n            .dspm(CloudAwsAccountDspmArgs.builder()\n                .enabled(true)\n                .build())\n            .idp(CloudAwsAccountIdpArgs.builder()\n                .enabled(true)\n                .build())\n            .isOrganizationManagementAccount(true)\n            .organizationId(\"o-1234567890\")\n            .realtimeVisibility(CloudAwsAccountRealtimeVisibilityArgs.builder()\n                .cloudtrail_region(\"us-east-1\")\n                .enabled(true)\n                .build())\n            .sensorManagement(CloudAwsAccountSensorManagementArgs.builder()\n                .enabled(true)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  org:\n    type: crowdstrike:CloudAwsAccount\n    properties:\n      accountId: '123456789012'\n      dspm:\n        enabled: true\n      idp:\n        enabled: true\n      isOrganizationManagementAccount: true\n      organizationId: o-1234567890\n      realtimeVisibility:\n        cloudtrail_region: us-east-1\n        enabled: true\n      sensorManagement:\n        enabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "This resource allows management of an AWS account in Falcon.\n\n## API Scopes\n\nThe following API scopes are required:\n\n- Cloud security AWS registration | Read \u0026 Write\n- CSPM registration | Read \u0026 Write\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.crowdstrike.CloudAwsAccount;\nimport com.pulumi.crowdstrike.CloudAwsAccountArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountDspmArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountIdpArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountRealtimeVisibilityArgs;\nimport com.pulumi.crowdstrike.inputs.CloudAwsAccountSensorManagementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var org = new CloudAwsAccount(\"org\", CloudAwsAccountArgs.builder()\n            .accountId(\"123456789012\")\n            .dspm(CloudAwsAccountDspmArgs.builder()\n                .enabled(true)\n                .build())\n            .idp(CloudAwsAccountIdpArgs.builder()\n                .enabled(true)\n                .build())\n            .organizationId(\"o-1234567890\")\n            .realtimeVisibility(CloudAwsAccountRealtimeVisibilityArgs.builder()\n                .cloudtrail_region(\"us-east-1\")\n                .enabled(true)\n                .build())\n            .sensorManagement(CloudAwsAccountSensorManagementArgs.builder()\n                .enabled(true)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  org:\n    type: crowdstrike:CloudAwsAccount\n    properties:\n      accountId: '123456789012'\n      dspm:\n        enabled: true\n      idp:\n        enabled: true\n      organizationId: o-1234567890\n      realtimeVisibility:\n        cloudtrail_region: us-east-1\n        enabled: true\n      sensorManagement:\n        enabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -1584,6 +1594,10 @@
                     "type": "string",
                     "description": "The ARN of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
                 },
+                "dspmRoleName": {
+                    "type": "string",
+                    "description": "The name of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
+                },
                 "eventbusArn": {
                     "type": "string",
                     "description": "The ARN of the Amazon EventBridge used by CrowdStrike to forward messages\n"
@@ -1600,6 +1614,10 @@
                     "type": "string",
                     "description": "The ARN of the AWS IAM role used to access this AWS account\n"
                 },
+                "iamRoleName": {
+                    "type": "string",
+                    "description": "The name of the AWS IAM role used to access this AWS account\n"
+                },
                 "idp": {
                     "$ref": "#/types/crowdstrike:index/CloudAwsAccountIdp:CloudAwsAccountIdp"
                 },
@@ -1613,7 +1631,7 @@
                 },
                 "organizationId": {
                     "type": "string",
-                    "description": "The AWS Organization ID\n"
+                    "description": "The AWS Organization ID (starts with `o-`). When specified, accounts within the organization will be registered. If `target_ous` is empty, all accounts in the organization will be registered. The `account_id` must be the organization's management account ID.\n"
                 },
                 "realtimeVisibility": {
                     "$ref": "#/types/crowdstrike:index/CloudAwsAccountRealtimeVisibility:CloudAwsAccountRealtimeVisibility"
@@ -1637,10 +1655,12 @@
                 "deploymentMethod",
                 "dspm",
                 "dspmRoleArn",
+                "dspmRoleName",
                 "eventbusArn",
                 "eventbusName",
                 "externalId",
                 "iamRoleArn",
+                "iamRoleName",
                 "idp",
                 "intermediateRoleArn",
                 "isOrganizationManagementAccount",
@@ -1670,13 +1690,9 @@
                 "idp": {
                     "$ref": "#/types/crowdstrike:index/CloudAwsAccountIdp:CloudAwsAccountIdp"
                 },
-                "isOrganizationManagementAccount": {
-                    "type": "boolean",
-                    "description": "Indicates whether this is the management account (formerly known as the root account) of an AWS Organization\n"
-                },
                 "organizationId": {
                     "type": "string",
-                    "description": "The AWS Organization ID\n"
+                    "description": "The AWS Organization ID (starts with `o-`). When specified, accounts within the organization will be registered. If `target_ous` is empty, all accounts in the organization will be registered. The `account_id` must be the organization's management account ID.\n"
                 },
                 "realtimeVisibility": {
                     "$ref": "#/types/crowdstrike:index/CloudAwsAccountRealtimeVisibility:CloudAwsAccountRealtimeVisibility"
@@ -1723,6 +1739,10 @@
                         "type": "string",
                         "description": "The ARN of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
                     },
+                    "dspmRoleName": {
+                        "type": "string",
+                        "description": "The name of the IAM role to be used by CrowdStrike Data Security Posture Management\n"
+                    },
                     "eventbusArn": {
                         "type": "string",
                         "description": "The ARN of the Amazon EventBridge used by CrowdStrike to forward messages\n"
@@ -1739,6 +1759,10 @@
                         "type": "string",
                         "description": "The ARN of the AWS IAM role used to access this AWS account\n"
                     },
+                    "iamRoleName": {
+                        "type": "string",
+                        "description": "The name of the AWS IAM role used to access this AWS account\n"
+                    },
                     "idp": {
                         "$ref": "#/types/crowdstrike:index/CloudAwsAccountIdp:CloudAwsAccountIdp"
                     },
@@ -1752,7 +1776,7 @@
                     },
                     "organizationId": {
                         "type": "string",
-                        "description": "The AWS Organization ID\n"
+                        "description": "The AWS Organization ID (starts with `o-`). When specified, accounts within the organization will be registered. If `target_ous` is empty, all accounts in the organization will be registered. The `account_id` must be the organization's management account ID.\n"
                     },
                     "realtimeVisibility": {
                         "$ref": "#/types/crowdstrike:index/CloudAwsAccountRealtimeVisibility:CloudAwsAccountRealtimeVisibility"
