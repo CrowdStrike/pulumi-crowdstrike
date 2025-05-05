@@ -19,10 +19,12 @@ from .host_group import *
 from .prevention_policy_attachment import *
 from .prevention_policy_linux import *
 from .prevention_policy_mac import *
+from .prevention_policy_precedence import *
 from .prevention_policy_windows import *
 from .provider import *
 from .sensor_update_policy import *
 from .sensor_update_policy_host_group_attachment import *
+from .sensor_update_policy_precedence import *
 from ._inputs import *
 from . import outputs
 
@@ -126,6 +128,14 @@ _utilities.register(
  },
  {
   "pkg": "crowdstrike",
+  "mod": "index/preventionPolicyPrecedence",
+  "fqn": "crowdstrike_pulumi",
+  "classes": {
+   "crowdstrike:index/preventionPolicyPrecedence:PreventionPolicyPrecedence": "PreventionPolicyPrecedence"
+  }
+ },
+ {
+  "pkg": "crowdstrike",
   "mod": "index/preventionPolicyWindows",
   "fqn": "crowdstrike_pulumi",
   "classes": {
@@ -146,6 +156,14 @@ _utilities.register(
   "fqn": "crowdstrike_pulumi",
   "classes": {
    "crowdstrike:index/sensorUpdatePolicyHostGroupAttachment:SensorUpdatePolicyHostGroupAttachment": "SensorUpdatePolicyHostGroupAttachment"
+  }
+ },
+ {
+  "pkg": "crowdstrike",
+  "mod": "index/sensorUpdatePolicyPrecedence",
+  "fqn": "crowdstrike_pulumi",
+  "classes": {
+   "crowdstrike:index/sensorUpdatePolicyPrecedence:SensorUpdatePolicyPrecedence": "SensorUpdatePolicyPrecedence"
   }
  }
 ]

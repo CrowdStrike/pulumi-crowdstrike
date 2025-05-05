@@ -70,6 +70,11 @@ export type PreventionPolicyMac = import("./preventionPolicyMac").PreventionPoli
 export const PreventionPolicyMac: typeof import("./preventionPolicyMac").PreventionPolicyMac = null as any;
 utilities.lazyLoad(exports, ["PreventionPolicyMac"], () => require("./preventionPolicyMac"));
 
+export { PreventionPolicyPrecedenceArgs, PreventionPolicyPrecedenceState } from "./preventionPolicyPrecedence";
+export type PreventionPolicyPrecedence = import("./preventionPolicyPrecedence").PreventionPolicyPrecedence;
+export const PreventionPolicyPrecedence: typeof import("./preventionPolicyPrecedence").PreventionPolicyPrecedence = null as any;
+utilities.lazyLoad(exports, ["PreventionPolicyPrecedence"], () => require("./preventionPolicyPrecedence"));
+
 export { PreventionPolicyWindowsArgs, PreventionPolicyWindowsState } from "./preventionPolicyWindows";
 export type PreventionPolicyWindows = import("./preventionPolicyWindows").PreventionPolicyWindows;
 export const PreventionPolicyWindows: typeof import("./preventionPolicyWindows").PreventionPolicyWindows = null as any;
@@ -89,6 +94,11 @@ export { SensorUpdatePolicyHostGroupAttachmentArgs, SensorUpdatePolicyHostGroupA
 export type SensorUpdatePolicyHostGroupAttachment = import("./sensorUpdatePolicyHostGroupAttachment").SensorUpdatePolicyHostGroupAttachment;
 export const SensorUpdatePolicyHostGroupAttachment: typeof import("./sensorUpdatePolicyHostGroupAttachment").SensorUpdatePolicyHostGroupAttachment = null as any;
 utilities.lazyLoad(exports, ["SensorUpdatePolicyHostGroupAttachment"], () => require("./sensorUpdatePolicyHostGroupAttachment"));
+
+export { SensorUpdatePolicyPrecedenceArgs, SensorUpdatePolicyPrecedenceState } from "./sensorUpdatePolicyPrecedence";
+export type SensorUpdatePolicyPrecedence = import("./sensorUpdatePolicyPrecedence").SensorUpdatePolicyPrecedence;
+export const SensorUpdatePolicyPrecedence: typeof import("./sensorUpdatePolicyPrecedence").SensorUpdatePolicyPrecedence = null as any;
+utilities.lazyLoad(exports, ["SensorUpdatePolicyPrecedence"], () => require("./sensorUpdatePolicyPrecedence"));
 
 
 // Export sub-modules:
@@ -126,12 +136,16 @@ const _module = {
                 return new PreventionPolicyLinux(name, <any>undefined, { urn })
             case "crowdstrike:index/preventionPolicyMac:PreventionPolicyMac":
                 return new PreventionPolicyMac(name, <any>undefined, { urn })
+            case "crowdstrike:index/preventionPolicyPrecedence:PreventionPolicyPrecedence":
+                return new PreventionPolicyPrecedence(name, <any>undefined, { urn })
             case "crowdstrike:index/preventionPolicyWindows:PreventionPolicyWindows":
                 return new PreventionPolicyWindows(name, <any>undefined, { urn })
             case "crowdstrike:index/sensorUpdatePolicy:SensorUpdatePolicy":
                 return new SensorUpdatePolicy(name, <any>undefined, { urn })
             case "crowdstrike:index/sensorUpdatePolicyHostGroupAttachment:SensorUpdatePolicyHostGroupAttachment":
                 return new SensorUpdatePolicyHostGroupAttachment(name, <any>undefined, { urn })
+            case "crowdstrike:index/sensorUpdatePolicyPrecedence:SensorUpdatePolicyPrecedence":
+                return new SensorUpdatePolicyPrecedence(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -148,9 +162,11 @@ pulumi.runtime.registerResourceModule("crowdstrike", "index/hostGroup", _module)
 pulumi.runtime.registerResourceModule("crowdstrike", "index/preventionPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("crowdstrike", "index/preventionPolicyLinux", _module)
 pulumi.runtime.registerResourceModule("crowdstrike", "index/preventionPolicyMac", _module)
+pulumi.runtime.registerResourceModule("crowdstrike", "index/preventionPolicyPrecedence", _module)
 pulumi.runtime.registerResourceModule("crowdstrike", "index/preventionPolicyWindows", _module)
 pulumi.runtime.registerResourceModule("crowdstrike", "index/sensorUpdatePolicy", _module)
 pulumi.runtime.registerResourceModule("crowdstrike", "index/sensorUpdatePolicyHostGroupAttachment", _module)
+pulumi.runtime.registerResourceModule("crowdstrike", "index/sensorUpdatePolicyPrecedence", _module)
 pulumi.runtime.registerResourcePackage("crowdstrike", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

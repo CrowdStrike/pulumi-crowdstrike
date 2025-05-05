@@ -15,8 +15,11 @@
 package provider
 
 import (
+	"context"
+	"crypto/rand"
 	_ "embed"
 	"fmt"
+	"math/big"
 	"path/filepath"
 	"strings"
 	"unicode"
@@ -174,6 +177,8 @@ func Provider() tfbridge.ProviderInfo {
 				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
 					"crowdstrike", "https://github.com/crowdstrike/pulumi-crowdstrike"),
 			},
+			"crowdstrike_prevention_policy_precedence":    {ComputeID: computePrecedenceID},
+			"crowdstrike_sensor_update_policy_precedence": {ComputeID: computePrecedenceID},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each data source in the Terraform provider to a Pulumi function.
@@ -231,4 +236,27 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func computePrecedenceID(_ context.Context, state resource.PropertyMap) (resource.ID, error) {
+	c := ". This is an error in pulumi-crowdstrike resource provider, please report at " +
+		"https://github.com/pulumi/pulumi-crowdstrike."
+	b, err := GenerateRandomString(10)
+	if err != nil {
+		return "", fmt.Errorf("Error computing a precedence id" + c)
+	}
+	return resource.ID(b), nil
+}
+
+func GenerateRandomString(length int) (string, error) {
+	const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	result := make([]byte, length)
+	for i := 0; i < length; i++ {
+		num, err := rand.Int(rand.Reader, big.NewInt(int64(len(letters))))
+		if err != nil {
+			return "", err
+		}
+		result[i] = letters[num.Int64()]
+	}
+	return string(result), nil
 }
