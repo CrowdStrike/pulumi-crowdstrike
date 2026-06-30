@@ -1,3 +1,6 @@
+> [!WARNING]
+> This project is archived and no longer supported. If you want to manage the CrowdStrike platform through infrastructure as code, see our official [Terraform provider](https://registry.terraform.io/providers/CrowdStrike/crowdstrike/latest).
+
 # CrowdStrike Resource Provider
 
 The CrowdStrike Resource Provider lets you manage [crowdstrike](https://www.pulumi.com/registry/packages/crowdstrike/) resources.
